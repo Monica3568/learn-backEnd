@@ -1,6 +1,6 @@
 package com.meiqi.edu.mapper;
 
-import com.meiqi.edu.entity.Teacher;
+import com.meiqi.edu.entity.EduTeacher;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author Monica
  * @since 2022-07-27
  */
-public interface TeacherMapper extends BaseMapper<Teacher> {
+public interface TeacherMapper extends BaseMapper<EduTeacher> {
 
 }

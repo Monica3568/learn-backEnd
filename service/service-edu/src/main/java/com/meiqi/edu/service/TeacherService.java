@@ -1,6 +1,6 @@
 package com.meiqi.edu.service;
 
-import com.meiqi.edu.entity.Teacher;
+import com.meiqi.edu.entity.EduTeacher;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Monica
  * @since 2022-07-27
  */
-public interface TeacherService extends IService<Teacher> {
+public interface TeacherService extends IService<EduTeacher> {
 
 }
