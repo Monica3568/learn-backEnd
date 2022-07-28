@@ -31,7 +31,7 @@ public class TeacherAdminController {
 
 
     @ApiOperation(value = "所有讲师列表")
-    @GetMapping
+    @GetMapping("/findAll")
     public R list() {
         List<EduTeacher> list = teacherService.list(null);
         return R.ok().data("items", list);
