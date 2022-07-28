@@ -2,7 +2,7 @@ package com.meiqi.edu.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.meiqi.edu.entity.Teacher;
+import com.meiqi.edu.entity.EduTeacher;
 import com.meiqi.edu.service.TeacherService;
 import com.meiqi.utils.R;
 import io.swagger.annotations.Api;
@@ -33,7 +33,7 @@ public class TeacherAdminController {
     @ApiOperation(value = "所有讲师列表")
     @GetMapping
     public R list() {
-        List<Teacher> list = teacherService.list(null);
+        List<EduTeacher> list = teacherService.list(null);
         return R.ok().data("items", list);
     }
 
@@ -55,9 +55,9 @@ public class TeacherAdminController {
             @PathVariable Long page,
             @ApiParam(name = "limit", value = "每页记录数", required = true)
             @PathVariable Long limit) {
-        Page<Teacher> pageParam = new Page<>(page, limit);
+        Page<EduTeacher> pageParam = new Page<>(page, limit);
         teacherService.page(pageParam, null);
-        List<Teacher> records = pageParam.getRecords();
+        List<EduTeacher> records = pageParam.getRecords();
         long total = pageParam.getTotal();
         return R.ok().data("total", total).data("rows", records);
     }
