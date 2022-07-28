@@ -3,6 +3,7 @@ package com.meiqi.edu.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.meiqi.edu.entity.EduTeacher;
+import com.meiqi.edu.query.TeacherQuery;
 import com.meiqi.edu.service.TeacherService;
 import com.meiqi.utils.R;
 import io.swagger.annotations.Api;
@@ -54,12 +55,45 @@ public class TeacherAdminController {
             @ApiParam(name = "page", value = "当前页码", required = true)
             @PathVariable Long page,
             @ApiParam(name = "limit", value = "每页记录数", required = true)
-            @PathVariable Long limit) {
+            @PathVariable Long limit,
+            @ApiParam(name = "teacherQuery", value = "查询对象", required = false)
+                    TeacherQuery teacherQuery) {
         Page<EduTeacher> pageParam = new Page<>(page, limit);
-        teacherService.page(pageParam, null);
+        teacherService.pageQuery(pageParam, teacherQuery);
         List<EduTeacher> records = pageParam.getRecords();
         long total = pageParam.getTotal();
         return R.ok().data("total", total).data("rows", records);
     }
+
+    @ApiOperation(value = "新增教师")
+    @PostMapping("/add")
+    public R add(
+            @ApiParam(name = "teacher", value = "讲师对象", required = true)
+            @RequestBody EduTeacher teacher){
+        teacherService.save(teacher);
+        return R.ok();
+    }
+
+    @ApiOperation(value = "根据ID查询讲师")
+    @PostMapping("/getById/{id}")
+    public R getById(
+            @ApiParam(name = "id", value = "讲师Id", required = true)
+            @PathVariable String id){
+        EduTeacher teacher = teacherService.getById(id);
+        return R.ok().data("item",teacher);
+    }
+
+    @ApiOperation(value = "根据ID修改讲师")
+    @PostMapping("/updateById/{id}")
+    public R updateById(
+            @ApiParam(name = "id", value = "讲师Id", required = true)
+            @PathVariable String id,
+            @ApiParam(name = "teacher", value = "讲师对象", required = true)
+            @RequestBody EduTeacher teacher){
+        teacher.setId(id);
+        teacherService.updateById(teacher);
+        return R.ok();
+    }
+
 }
 

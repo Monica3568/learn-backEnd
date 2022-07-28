@@ -1,0 +1,20 @@
+package com.meiqi.servicebase.exception;
+
+/**
+ * @Author Monica
+ * @Date 2022/7/28 10:03
+ **/
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class EduException extends RuntimeException{
+    @ApiModelProperty(value = "状态码")
+    private Integer code;
+    private String msg;
+}

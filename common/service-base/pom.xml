@@ -11,5 +11,12 @@
 
     <artifactId>service-base</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.meiqi</groupId>
+            <artifactId>common-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
