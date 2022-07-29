@@ -6,7 +6,7 @@ package com.meiqi.utils;
  **/
 public class ResultCode {
 
-    public static Integer SUCCESS = 200;
+    public static Integer SUCCESS = 20000;//成功
 
-    public static Integer ERROR = 201;
+    public static Integer ERROR = 20001;//失败
 }

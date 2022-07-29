@@ -23,9 +23,10 @@ import java.util.List;
  * @since 2022-07-27
  */
 @Api(description = "讲师管理")
+@CrossOrigin
 @RestController
-@RequestMapping("/admin/edu/teacher")
-public class TeacherAdminController {
+@RequestMapping("/eduservice/teacher")
+public class EduTeacherController {
 
     @Autowired
     private TeacherService teacherService;
@@ -50,7 +51,7 @@ public class TeacherAdminController {
 
 
     @ApiOperation(value = "分页讲师列表")
-    @GetMapping("{page}/{limit}")
+    @PostMapping("/pageTeacherCondition/{page}/{limit}")
     public R pageList(
             @ApiParam(name = "page", value = "当前页码", required = true)
             @PathVariable Long page,
