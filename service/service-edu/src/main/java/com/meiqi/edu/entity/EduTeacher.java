@@ -6,6 +6,8 @@ import java.util.Date;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -29,6 +31,10 @@ public class EduTeacher implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "讲师ID")
+    /**
+     * https://blog.csdn.net/qq_41619796/article/details/125411221
+     */
+    @JsonSerialize(using = ToStringSerializer.class)
     @TableId(value = "id", type = IdType.ID_WORKER)
     private Long id;
 

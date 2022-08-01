@@ -44,7 +44,7 @@ public class EduTeacherController {
     @DeleteMapping("/deleteById/{id}")
     public R removeById(
             @ApiParam(name = "id", value = "讲师ID", required = true)
-            @PathVariable String id) {
+            @PathVariable Long id) {
         teacherService.removeById(id);
         return R.ok();
     }
@@ -76,10 +76,10 @@ public class EduTeacherController {
     }
 
     @ApiOperation(value = "根据ID查询讲师")
-    @PostMapping("/getById/{id}")
+    @GetMapping("/getById/{id}")
     public R getById(
             @ApiParam(name = "id", value = "讲师Id", required = true)
-            @PathVariable long id) {
+            @PathVariable Long id) {
         EduTeacher teacher = teacherService.getById(id);
         return R.ok().data("item", teacher);
     }
@@ -88,7 +88,7 @@ public class EduTeacherController {
     @PostMapping("/updateById/{id}")
     public R updateById(
             @ApiParam(name = "id", value = "讲师Id", required = true)
-            @PathVariable long id,
+            @PathVariable Long id,
             @ApiParam(name = "teacher", value = "讲师对象", required = true)
             @RequestBody EduTeacher teacher) {
         teacher.setId(id);

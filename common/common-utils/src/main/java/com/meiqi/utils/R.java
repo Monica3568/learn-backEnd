@@ -12,7 +12,7 @@ import java.util.Map;
  * @Date 2022/7/27 16:07
  **/
 @Data
-public class  R {
+public class R {
     @ApiModelProperty(value = "是否成功")
     private Boolean success;
     @ApiModelProperty(value = "返回码")
