@@ -41,7 +41,7 @@ public class EduTeacherController {
 
 
     @ApiOperation(value = "根据ID删除讲师")
-    @DeleteMapping("{id}")
+    @DeleteMapping("/deleteById/{id}")
     public R removeById(
             @ApiParam(name = "id", value = "讲师ID", required = true)
             @PathVariable String id) {
@@ -58,7 +58,7 @@ public class EduTeacherController {
             @ApiParam(name = "limit", value = "每页记录数", required = true)
             @PathVariable Long limit,
             @ApiParam(name = "teacherQuery", value = "查询对象", required = false)
-                    TeacherQuery teacherQuery) {
+            @RequestBody TeacherQuery teacherQuery) {
         Page<EduTeacher> pageParam = new Page<>(page, limit);
         teacherService.pageQuery(pageParam, teacherQuery);
         List<EduTeacher> records = pageParam.getRecords();
@@ -70,7 +70,7 @@ public class EduTeacherController {
     @PostMapping("/add")
     public R add(
             @ApiParam(name = "teacher", value = "讲师对象", required = true)
-            @RequestBody EduTeacher teacher){
+            @RequestBody EduTeacher teacher) {
         teacherService.save(teacher);
         return R.ok();
     }
@@ -79,18 +79,18 @@ public class EduTeacherController {
     @PostMapping("/getById/{id}")
     public R getById(
             @ApiParam(name = "id", value = "讲师Id", required = true)
-            @PathVariable String id){
+            @PathVariable long id) {
         EduTeacher teacher = teacherService.getById(id);
-        return R.ok().data("item",teacher);
+        return R.ok().data("item", teacher);
     }
 
     @ApiOperation(value = "根据ID修改讲师")
     @PostMapping("/updateById/{id}")
     public R updateById(
             @ApiParam(name = "id", value = "讲师Id", required = true)
-            @PathVariable String id,
+            @PathVariable long id,
             @ApiParam(name = "teacher", value = "讲师对象", required = true)
-            @RequestBody EduTeacher teacher){
+            @RequestBody EduTeacher teacher) {
         teacher.setId(id);
         teacherService.updateById(teacher);
         return R.ok();

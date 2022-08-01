@@ -36,14 +36,14 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, EduTeacher> i
         if (!StringUtils.isEmpty(name)){
             wrapper.like("name",name);
         }
-        if (!StringUtils.isEmpty(name)){
-            wrapper.like("level",level);
+        if (!StringUtils.isEmpty(level)){
+            wrapper.eq("level",level);
         }
-        if (!StringUtils.isEmpty(name)){
-            wrapper.like("begin",begin);
+        if (!StringUtils.isEmpty(begin)){
+            wrapper.ge("gmt_create",begin);
         }
-        if (!StringUtils.isEmpty(name)){
-            wrapper.like("end",end);
+        if (!StringUtils.isEmpty(end)){
+            wrapper.le("gmt_create",end);
         }
         baseMapper.selectPage(pageParam,wrapper);
     }
