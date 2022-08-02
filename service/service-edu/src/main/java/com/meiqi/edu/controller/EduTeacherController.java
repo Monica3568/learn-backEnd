@@ -7,6 +7,7 @@ import com.meiqi.edu.query.TeacherQuery;
 import com.meiqi.edu.service.TeacherService;
 import com.meiqi.utils.R;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,17 +85,18 @@ public class EduTeacherController {
         return R.ok().data("item", teacher);
     }
 
-    @ApiOperation(value = "根据ID修改讲师")
-    @PostMapping("/updateById/{id}")
-    public R updateById(
-            @ApiParam(name = "id", value = "讲师Id", required = true)
-            @PathVariable Long id,
-            @ApiParam(name = "teacher", value = "讲师对象", required = true)
-            @RequestBody EduTeacher teacher) {
-        teacher.setId(id);
-        teacherService.updateById(teacher);
-        return R.ok();
+    //修改讲师
+    @ApiModelProperty(value = "修改讲师")
+    @PostMapping("/updateById")
+    public R updateById(@RequestBody EduTeacher teacher){
+        boolean flag = teacherService.updateById(teacher);
+        if (flag){
+            return R.ok();
+        }else {
+            return R.error();
+        }
     }
+
 
 }
 
