@@ -50,7 +50,7 @@ public void main1() {
 
          // 4、包配置
          PackageConfig pc = new PackageConfig();
-         pc.setModuleName("serviceedu"); //模块名
+         pc.setModuleName("edu"); //模块名
          pc.setParent("com.meiqi");
          pc.setController("controller");
          pc.setEntity("entity");
@@ -60,9 +60,9 @@ public void main1() {
 
          // 5、策略配置
          StrategyConfig strategy = new StrategyConfig();
-         strategy.setInclude("edu_teacher");
+         strategy.setInclude("edu_course","edu_chapter","edu_course_description","edu_video");//根据数据库哪张表生成，有多张表就加逗号继续填写
          strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
-        strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
+         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
          strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略
          strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain =true) setter链式操作
 

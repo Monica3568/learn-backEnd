@@ -3,9 +3,9 @@ package com.meiqi.edu.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.meiqi.edu.entity.EduTeacher;
-import com.meiqi.edu.mapper.TeacherMapper;
-import com.meiqi.edu.query.TeacherQuery;
-import com.meiqi.edu.service.TeacherService;
+import com.meiqi.edu.mapper.EduTeacherMapper;
+import com.meiqi.edu.vo.TeacherQuery;
+import com.meiqi.edu.service.EduTeacherService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
  * @since 2022-07-27
  */
 @Service
-public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, EduTeacher> implements TeacherService {
+public class TeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeacher> implements EduTeacherService {
 
     @Override
     public void pageQuery(Page<EduTeacher> pageParam, TeacherQuery teacherQuery) {

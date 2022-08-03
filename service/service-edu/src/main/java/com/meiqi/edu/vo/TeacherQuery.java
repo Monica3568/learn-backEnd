@@ -1,4 +1,4 @@
-package com.meiqi.edu.query;
+package com.meiqi.edu.vo;
 
 /**
  * @Author Monica

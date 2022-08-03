@@ -3,8 +3,8 @@ package com.meiqi.edu.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.meiqi.edu.entity.EduTeacher;
-import com.meiqi.edu.query.TeacherQuery;
-import com.meiqi.edu.service.TeacherService;
+import com.meiqi.edu.vo.TeacherQuery;
+import com.meiqi.edu.service.EduTeacherService;
 import com.meiqi.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +30,7 @@ import java.util.List;
 public class EduTeacherController {
 
     @Autowired
-    private TeacherService teacherService;
+    private EduTeacherService teacherService;
 
 
     @ApiOperation(value = "所有讲师列表")

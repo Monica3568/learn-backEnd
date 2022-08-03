@@ -35,8 +35,8 @@ public class EduTeacher implements Serializable {
      * https://blog.csdn.net/qq_41619796/article/details/125411221
      */
     @JsonSerialize(using = ToStringSerializer.class)
-    @TableId(value = "id", type = IdType.ID_WORKER)
-    private Long id;
+    @TableId(value = "id", type = IdType.ID_WORKER_STR)
+    private String id;
 
     @ApiModelProperty(value = "讲师姓名")
     private String name;
