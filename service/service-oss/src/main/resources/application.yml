@@ -1,0 +1,8 @@
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://124.223.14.20:8848
+  application:
+    name: service_oss
